@@ -11,7 +11,7 @@ type PropsType = {
 
 export default function ChipPicker({isMoney, setIsMoney}: PropsType) {
   const [isShrunk, setIsShrunk] = useState(false);
-  const [bet, setBet] = useState(0)
+  const [bet, setBet] = useState()
 
 
   const toggleShrink = () => {
