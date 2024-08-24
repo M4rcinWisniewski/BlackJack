@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Chip from "./Chip";
-import RangeInput from './RangeInput';
+import BetButton from './BetButton';
 
 type PropsType = {
   isMoney: number;
@@ -12,32 +12,20 @@ type PropsType = {
 }
 
 export default function ChipPicker({isMoney, setIsMoney, value, setValue}: PropsType) {
-  const [isShrunk, setIsShrunk] = useState(false);
+
   const [bet, setBet] = useState(0)
 
 
-  const toggleShrink = () => {
-    setIsShrunk(!isShrunk);
-  };
 
 
 
   return (
-    <main className="flex justify-center items-center flex-col w-screen">
-      <button onClick={toggleShrink}>Toggle Size</button>
-      <button>Bet</button>
+    <main className="flex justify-right items-center flex-col w-[30vh] border-l-4 border-[#99615b] bg-[#5c222a] h-[100vh]">
       <div
-        className={`flex justify-center items-center flex-col gap-6 bg-[#40b658] m-0 transition-all duration-300 w-screen ${
-          isShrunk ? 'py-2' : 'py-8'
-        }`}
-        style={{
-          height: isShrunk ? '20px' : 'auto',
-          overflow: 'hidden',
-
-        }}
+        className={`flex justify-center items-center flex-col gap-6  m-0 transition-all duration-300 h-[100vh]  `}
       >
-        <h1>{isMoney}</h1>
-      <RangeInput maxValue={isMoney} value={value} setValue={setValue}/>
+        <h1 className='text-white'>Your Money: {isMoney}</h1>
+      <BetButton money={isMoney} value={value} setIsMoney={setIsMoney} setValue={setValue}/>
 
       </div>
     </main>
